@@ -6,9 +6,15 @@ const connect = function () {
     host: '135.23.223.133',// IP address here,
     port: 50542// PORT number here,
   });
-
-  // interpret incoming data as text
+// interpret incoming data as text
   conn.setEncoding("utf8");
+  //messgae after connection to the server has been established
+  conn.on('connect', () => {
+    console.log("Successfully connected to game server");
+    conn.write("Move: up");
+    conn.write("Rup: hey");
+  })
+  // interpret incoming data from server as text
   conn.on("data", (data) => {
     console.log(data);
   })
