@@ -14,11 +14,7 @@ const connect = function () {
     conn.write("Name: Rup");
   })
 
-  conn.on('connect' , () => {
-    setInterval( () => {
-      conn.write("Move: right");    
-    }, 1000)
-  })
+
 
   // interpret incoming data from server as text
   conn.on("data", (data) => {
