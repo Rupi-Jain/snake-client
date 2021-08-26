@@ -30,6 +30,10 @@ const handleUserInput = function(key) {
     connection.write('Move: right')
     console.log(key);
   }
+  if (key === '\u0071') {
+    connection.write('Say: Hey')
+    console.log(key);
+  }
   if (key === '\u0003') {
     process.exit();    
   }
