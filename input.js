@@ -1,4 +1,4 @@
-
+const { mapping } = require('./constants')
 let connection;
 
 const setupInput = (conn) => {
@@ -13,29 +13,12 @@ const setupInput = (conn) => {
 };
 
 const handleUserInput = function(key) {
-  
-  if (key === '\u0077') {
-   connection.write('Move: up')
-   console.log(key);
-  }
-  if (key === '\u0061') {
-    connection.write('Move: left')
-    console.log(key);
-  }
-  if (key === '\u0073') {
-    connection.write('Move: down')
-    console.log(key);
-  }
-  if (key === '\u0064') {
-    connection.write('Move: right')
-    console.log(key);
-  }
-  if (key === '\u0071') {
-    connection.write('Say: Hey')
-    console.log(key);
-  }
+ 
   if (key === '\u0003') {
     process.exit();    
+  }
+  if (mapping.hasOwnProperty(key)) {
+    connection.write(mapping[key]);
   }
 }
 
